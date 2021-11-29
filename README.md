@@ -9,7 +9,7 @@ Dependencies:
 # Installation
 You can install the development version of **DeductiveR** from GitHub with:
 ```
-# install.packages("DeductiveR")
+# install.packages("remotes")
 remotes::install_github("Alobondo/DeductiveR")
 library(DeductiveR)
 ```
