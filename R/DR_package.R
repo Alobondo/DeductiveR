@@ -27,7 +27,7 @@ DR <- function(data){
   agnos_sin <- filter(meses_faltantes, Station > 11)
 
   # A matrix of years x months is created
-  data_wide <- acast(data, year ~ month)
+  data_wide <- dcast(data, year ~ month)
 
   # Years without data is eliminated
   data_wide <- data_wide %>% slice(-match(agnos_sin$year, data_wide$year))
