@@ -9,6 +9,7 @@ DR <- function(data){
   # and requires a record with at least 10 full years.
 
   # data is data frame with columns: date - year - month - day - station
+  colnames(data)[5] <- "Station"
 
   # Count missing months by chronological years
   meses_faltantes <- stats::aggregate(Station ~ year, data=data, function(x) {sum(is.na(x))}, na.action = NULL)
