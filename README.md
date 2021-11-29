@@ -21,5 +21,7 @@ Functions | Description |
 ```DR_plot()``` | Plot the result from the application of the Deductive Rational Method |
 ```DR_stats()``` | Statistics for the result from the application of the Deductive Rational Method |
 
+DR() works with a dataframe with columns: date - year - month - day - station number (type date the first column and numeric the rest). This follows the same format as CAMELS-CL (```https://camels.cr2.cl/```) monthly flow file.
+
 # Keywords
 Hydrology, R package, Time Series
