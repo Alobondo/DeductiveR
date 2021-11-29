@@ -8,11 +8,16 @@ DR <- function(data){
   # The method only allows you to fill in up to 11 months for incomplete years
   # and requires a record with at least 10 full years.
 
-  # data is data frame with columns: date - year - month - day - station
-  colnames(data)[5] <- "Station"
+  # A matrix of years x months is created
+  data_wide <- as.data.frame(acast(data, year ~ month))
+  data_wide <- cbind(year = rownames(data_wide), data_wide)
+
+  # A long format DF a is created
+  data_long <- data_wide %>% melt(id.vars=c("year"))
+  colnames(data_long)[3] <- "Station"
 
   # Count missing months by chronological years
-  meses_faltantes <- stats::aggregate(Station ~ year, data=data, function(x) {sum(is.na(x))}, na.action = NULL)
+  meses_faltantes <- stats::aggregate(Station ~ year, data=data_long, function(x) {sum(is.na(x))}, na.action = NULL)
 
   # Number of complete years
   complete_y <- sum(meses_faltantes$Station == 0, na.rm=TRUE)
@@ -27,11 +32,10 @@ DR <- function(data){
   # Years without data
   agnos_sin <- filter(meses_faltantes, Station > 11)
 
-  # A matrix of years x months is created
-  data_wide <- dcast(data, year ~ month)
-
   # Years without data is eliminated
+  if (length(agnos_sin$year) != 0) {
   data_wide <- data_wide %>% slice(-match(agnos_sin$year, data_wide$year))
+  }
 
   # Sum of each year
   Suma <- data_wide %>% select(-year) %>% rowSums(.,na.rm=T)

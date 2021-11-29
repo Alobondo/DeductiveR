@@ -6,8 +6,9 @@
 DR_plot <- function(dr){
   data_long_month <- dr %>% melt(id.vars=c("year"))
   colnames(data_long_month)[2:3] <- c("Month", "Value")
+  data_long_month$year <- as.numeric(data_long_month$year)
 
-  aux <- as.data.frame(cbind(month.abb[seq(1,12)],colMeans(dr)[2:13]))
+  aux <- as.data.frame(cbind(month.abb[seq(1,12)],colMeans(dr[2:13])))
   colnames(aux) <- c("Month","Mean")
   aux$Mean <- as.numeric(aux$Mean)
 
