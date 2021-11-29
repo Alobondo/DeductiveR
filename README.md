@@ -14,14 +14,14 @@ remotes::install_github("Alobondo/DeductiveR")
 library(DeductiveR)
 ```
 
-# Data sources
+# Usage
 Functions | Description |
 --- | --- |
 ```DR()``` | Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data. |
 ```DR_plot()``` | Plot the result from the application of the Deductive Rational Method |
 ```DR_stats()``` | Statistics for the result from the application of the Deductive Rational Method |
 
-DR() works with a dataframe with columns: date - year - month - day - station number (type date the first column and numeric the rest). This follows the same format as CAMELS-CL (```https://camels.cr2.cl/```) monthly flow file.
+```DR()``` works with a dataframe with columns: date - year - month - day - station number (type date the first column and numeric the rest). This follows the same format as CAMELS-CL (```https://camels.cr2.cl/```) monthly flow file.
 
 # Keywords
 Hydrology, R package, Time Series
