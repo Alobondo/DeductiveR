@@ -24,7 +24,7 @@ Functions | Description |
 ```DR()``` works with a dataframe with columns: date - year - month - day - station number (type date the first column and numeric the rest). This follows the same format as CAMELS-CL (```https://camels.cr2.cl/```) monthly flow file.
 
 # Reporting bugs
-If you find an error in some function, or want to report a typo in the documentation you can do it here [here](https://github.com/Alobondo/DeductiveR/issues)
+If you find an error in some function, want to report a typo in the documentation or submit a recommendation, you can do it [here](https://github.com/Alobondo/DeductiveR/issues)
 
 # Keywords
 Hydrology, R package, Time Series
