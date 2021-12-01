@@ -30,7 +30,7 @@ DR <- function(data){
   incomplete_y_12 <- sum(meses_faltantes$Station > 11, na.rm=TRUE)
 
   # Years without data
-  agnos_sin <- filter(meses_faltantes, Station > 11)
+  agnos_sin <- filter(meses_faltantes, meses_faltantes$Station > 11)
 
   # Years without data is eliminated
   if (length(agnos_sin$year) != 0) {
@@ -38,17 +38,17 @@ DR <- function(data){
   }
 
   # Sum of each year
-  Suma <- data_wide %>% select(-year) %>% rowSums(.,na.rm=T)
+  Suma <- data_wide %>% select(-1) %>% rowSums(na.rm=T)
   data_wide <- data_wide %>% mutate(Suma)
 
   #  Percentages matrix
-  data_porc <- (select(data_wide, -year, -Suma) / Suma) * 100
+  data_porc <- (select(data_wide, -1, -14) / Suma) * 100
 
   # Average percentages vector
   Porc_prom <- data_porc %>% summarise_if(is.numeric, mean,na.rm=T)
 
   # Auxiliary matrix
-  Aux <- data_wide %>% select(-year, -Suma) %>% "*"(0)
+  Aux <- data_wide %>% select(-1, -14) %>% "*"(0)
   Aux[is.na(Aux)] <- 1
 
   # Auxiliary vectors with missing percentages
@@ -65,7 +65,7 @@ DR <- function(data){
   DR <- ((Rep_aux_2 * Rep_aux_3) / Rep_aux)*Rep_aux_4
 
   # Final element with existing and filled data
-  DR_final <- data_wide %>% select(-year, -Suma)
+  DR_final <- data_wide %>% select(-1, -14)
   DR_final[is.na(DR_final)] <- 0
 
   DR <- t(matrix(DR,nrow = 12))

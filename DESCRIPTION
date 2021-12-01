@@ -1,14 +1,13 @@
 Package: DeductiveR
 Type: Package
 Title: Deductive Rational Method
-Version: 0.1.0
+Version: 1.0.0
 Date: 2021-11-22
-Author: Alonso Arriagada M.
-Maintainer: Alonso Arriagada M. <alonso.arriagada@usach.cl>
-Description: Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data. Based on Campos, D. F., Procesos del ciclo hidrologico, Universidad Autonoma de San Luis Potosi, 1992, Mexico.
+Authors@R: person("Alonso", "Arriagada", email = "alonso.arriagada@usach.cl",
+                  role = c("aut", "cre"))
+Description: Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data.
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.1.1
 Imports:
     dplyr,
