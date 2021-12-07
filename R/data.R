@@ -8,7 +8,7 @@
 #'   \item{year}{years}
 #'   \item{month}{months}
 #'   \item{day}{days}
-#'   \item{Station}{flows, in cubic meters per second}
+#'   \item{4400001}{flows, in cubic meters per second}
 #' }
 #' @source \url{https://camels.cr2.cl/}
 "data"
