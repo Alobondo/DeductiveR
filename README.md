@@ -3,7 +3,7 @@ Deductive Rational Method for fill in missing data of flow or precipitation mont
 
 # Requirements
 Dependencies:
-  dplyr, reshape2, ggplot2, moments
+  dplyr, reshape2, ggplot2, moments, ggpubr, lmomco
 
 # Installation
 You can install the currently-released version of **DeductiveR** from CRAN with this R command:
@@ -22,7 +22,10 @@ Functions | Description |
 --- | --- |
 ```DR()``` | Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data. |
 ```DR_plot()``` | Plot the result from the application of the Deductive Rational Method. |
+```DR_boxplot()``` | BoxPlot from the result from the application of the Deductive Rational Method. |
 ```DR_stats()``` | Statistics for the result from the application of the Deductive Rational Method. |
+```DR_SVC()``` | Seasonal Variation Curves considering results from the application of the Deductive Rational Method. |
+
 
 ```DR()``` works with a dataframe with columns: date - year - month - day - station number (type date the first column and numeric the rest). This follows the same format as CAMELS-CL (```https://camels.cr2.cl/```) monthly flow file.
 
