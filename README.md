@@ -25,7 +25,7 @@ Functions | Description |
 ```DR_boxplot()``` | BoxPlot from the result from the application of the Deductive Rational Method. |
 ```DR_stats()``` | Statistics for the result from the application of the Deductive Rational Method. |
 ```DR_SVC()``` | Seasonal Variation Curves considering results from the application of the Deductive Rational Method. |
-
+```DeductiveR::data``` | Load the example data. |
 
 ```DR()``` works with a dataframe with columns: date - year - month - day - station number (type date the first column and numeric the rest). This follows the same format as CAMELS-CL (```https://camels.cr2.cl/```) monthly flow file.
 
