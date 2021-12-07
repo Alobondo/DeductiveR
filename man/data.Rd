@@ -11,7 +11,7 @@ A data frame with 480 rows and 5 variables:
   \item{year}{years}
   \item{month}{months}
   \item{day}{days}
-  \item{4400001}{flows, in cubic meters per second}
+  \item{Station}{flows, in cubic meters per second}
 }
 }
 \source{
