@@ -13,6 +13,7 @@ DR_plot <- function(dr){
   aux$Mean <- as.numeric(aux$Mean)
 
   ggplot(data_long_month, aes(x=as.factor(data_long_month$Month), y=data_long_month$Value, group=data_long_month$year, color=data_long_month$year)) +
+    labs(color='year') +
     geom_line(size = 1, alpha = 0.75) +
     scale_x_discrete(labels=month.abb[seq(1,12)], guide = guide_axis(angle = 90)) +
     geom_line(data = aux,aes(x=factor(aux$Month, levels = month.abb),y=aux$Mean,fill="mean"),size = 1.75, color = "red", linetype = "dashed", group =1,show.legend = TRUE) +
