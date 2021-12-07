@@ -7,7 +7,11 @@ Dependencies:
 
 
 # Installation
-You can install the development version of **DeductiveR** from GitHub with:
+You can install the currently-released version of **DeductiveR** from CRAN with this R command:
+```
+install.packages("DeductiveR")
+```
+Alternatively, you can install the development version from GitHub with:
 ```
 # install.packages("remotes")
 remotes::install_github("Alobondo/DeductiveR")
