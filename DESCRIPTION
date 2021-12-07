@@ -5,7 +5,7 @@ Version: 1.0.0
 Date: 2021-11-22
 Authors@R: person("Alonso", "Arriagada", email = "alonso.arriagada@usach.cl",
                   role = c("aut", "cre"))
-Description: Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data.
+Description: Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data. The method is as described in: Campos, D.F., (1984, ISBN:9686194444). 
 License: GPL-3
 Encoding: UTF-8
 RoxygenNote: 7.1.1
@@ -13,7 +13,9 @@ Imports:
     dplyr,
     reshape2,
     ggplot2,
-    moments
+    moments,
+    ggpubr,
+    lmomco
 Suggests: 
     rmarkdown,
     knitr
