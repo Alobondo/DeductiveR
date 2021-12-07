@@ -2,7 +2,7 @@
 % Please edit documentation in R/DR_SVC_package.R
 \name{DR_SVC}
 \alias{DR_SVC}
-\title{Seasonal Variation Curves considering result from the application of the Deductive Rational Method}
+\title{Seasonal Variation Curves considering results from the application of the Deductive Rational Method}
 \usage{
 DR_SVC(dr)
 }
@@ -10,5 +10,5 @@ DR_SVC(dr)
 \item{dr}{data frame from DR function}
 }
 \description{
-Seasonal Variation Curves considering result from the application of the Deductive Rational Method
+Seasonal Variation Curves considering results from the application of the Deductive Rational Method
 }

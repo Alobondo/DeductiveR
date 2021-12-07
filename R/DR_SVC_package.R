@@ -1,4 +1,4 @@
-#' Seasonal Variation Curves considering result from the application of the Deductive Rational Method
+#' Seasonal Variation Curves considering results from the application of the Deductive Rational Method
 #' @export
 #' @param dr data frame from DR function
 #' @import dplyr reshape2 ggplot2 lmomco ggpubr
