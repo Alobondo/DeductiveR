@@ -25,7 +25,6 @@ DR_SVC <- function(dr){
     geom_point(shape = 1, size = 2, fill = "white") +
     geom_line(aes(group = data_long_CVE_probb$Exd_Probb),size = 0.85) +
     scale_x_discrete(labels=month.abb[seq(1,12)], guide = guide_axis(angle = 90))+
-    scale_y_continuous(labels = function(x) paste0(x*100, "%")) +
     ggtitle("Seasonal Variation Curves for monthly values \nfilled with Rational Deductive Method") +
     labs(color = "Exd. Probb. [%]") + xlab("Month") + ylab("Value") +
     theme_bw()
