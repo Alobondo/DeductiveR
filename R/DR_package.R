@@ -12,6 +12,9 @@ DR <- function(data){
   data_wide <- as.data.frame(acast(data, year ~ month))
   data_wide <- cbind(year = rownames(data_wide), data_wide)
 
+  # As numeric
+  data_wide <- data.frame(sapply( data_wide , as.numeric ))
+
   # A long format DF a is created
   data_long <- data_wide %>% melt(id.vars=c("year"))
   colnames(data_long)[3] <- "Station"

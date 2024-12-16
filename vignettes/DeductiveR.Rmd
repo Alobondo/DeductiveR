@@ -1,6 +1,7 @@
 ---
 title: "DeductiveR"
 author: "Alonso Arriagadada M.  <alonso.arriagada@usach.cl>"
+version: "1.1.0"
 date: "29-11-2021"
 output: rmarkdown::html_vignette
 vignette: >
@@ -19,7 +20,7 @@ knitr::opts_chunk$set(
 DeductiveR is an R package for fill in missing data of flow or precipitation monthly time series using the Deductive Rational Method, proposed by Campos (Campos, D. F., Procesos del ciclo hidrologico, Universidad Autonoma de San Luis Potosi, 1992, Mexico).
 
 ## Requirements
-Dependencies: dplyr, reshape2, ggplot2, moments
+Dependencies: dplyr, reshape2, ggplot2, moments, ggpubr, lmomco
 
 ## Installation
 You can install the development version of DeductiveR from GitHub with:
@@ -35,5 +36,7 @@ Functions | Description |
 ```DR()``` | Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data. |
 ```DR_plot()``` | Plot the result from the application of the Deductive Rational Method. |
 ```DR_stats()``` | Statistics for the result from the application of the Deductive Rational Method. |
+```DR_boxplot()``` | Monthly boxplot considering result from the application of the Deductive Rational Method. |
+```DR_SVC()``` | Seasonal Variation Curves considering results from the application of the Deductive Rational Method. |
 
 ```DR()``` works with a dataframe with columns: date - year - month - day - station number (type date the first column and numeric the rest). This follows the same format as CAMELS-CL (```https://camels.cr2.cl/```) monthly flow file.
