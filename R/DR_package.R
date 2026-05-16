@@ -12,6 +12,7 @@ DR <- function(data, negative = FALSE){
   # A matrix of years x months is created
   colnames(data) <- c("date", "year", "month", "day", "station")
   data_wide <- data %>%
+    select(-day, -date) %>%
     pivot_wider(names_from = month, values_from = station) %>%
     mutate(across(everything(), as.numeric))
 
