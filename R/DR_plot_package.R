@@ -11,16 +11,46 @@ DR_plot <- function(dr, facet = FALSE){
   aux <- as.data.frame(cbind(month.abb[seq(1,12)],colMeans(dr[2:13])))
   colnames(aux) <- c("Month","Mean")
   aux$Mean <- as.numeric(aux$Mean)
+  # use factor for month to ensure Jan is the first and Dec the 12th
+  aux$Month <- factor(aux$Month, levels = month.abb[seq(1,12)])
+  data_long_month$Month <- factor(data_long_month$Month, levels = month.abb[seq(1,12)])
 
-  ggplot(data_long_month, aes(x=as.factor(data_long_month$Month), y=data_long_month$Value, group=data_long_month$year, color=data_long_month$year)) +
-    labs(color='year') +
-    geom_line(size = 1, alpha = 0.75) +
-    scale_x_discrete(labels=month.abb[seq(1,12)], guide = guide_axis(angle = 90)) +
-    geom_line(data = aux,aes(x=factor(aux$Month, levels = month.abb),y=aux$Mean,fill="mean"),size = 1.75, color = "red", linetype = "dashed", group =1,show.legend = TRUE) +
-    scale_fill_manual("line", values=c(1),guide=guide_legend(override.aes = list(colour=c("red")))) +
-    ggtitle("Monthly values filled with Deductive Rational Method") +
-    xlab("Month") + ylab("Value") +
-    theme_bw() +
-    if (facet) facet_wrap(~ year)
+  if (facet) {
+    ggplot(data_long_month, aes(x = factor(Month, levels = month.abb),
+                                y = Value,
+                                group = year,
+                                color = factor(year))) +
+      geom_line(size = 1, alpha = 0.75) +
+      facet_wrap(~ year) +
+      # add red dashed line for monthly mean
+      geom_line(data = aux,
+                aes(x = factor(Month, levels = month.abb),
+                    y = Mean,
+                    group = 1,
+                    color = "mean"),
+                size = .75, linetype = "dashed", show.legend = TRUE) +
+      scale_color_manual(values = c("mean" = "red"),
+                         breaks = c(levels(factor(data_long_month$year)), "mean"),
+                         labels = c(levels(factor(data_long_month$year)), "mean")) +
+      labs(color = "year") +
+      ggtitle("Monthly values filled with Deductive Rational Method") +
+      xlab("Month") + ylab("Value") +
+      theme_bw()+
+      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+
+  } else {
+
+    ggplot(data_long_month, aes(x=as.factor(data_long_month$Month), y=data_long_month$Value, group=data_long_month$year, color=data_long_month$year)) +
+      labs(color='year') +
+      geom_line(size = 1, alpha = 0.75) +
+      scale_x_discrete(labels=month.abb[seq(1,12)], guide = guide_axis(angle = 90)) +
+      geom_line(data = aux,aes(x=factor(aux$Month, levels = month.abb),y=aux$Mean,fill="mean"),size = 1.75, color = "red", linetype = "dashed", group =1,show.legend = TRUE) +
+      scale_fill_manual("line", values=c(1),guide=guide_legend(override.aes = list(colour=c("red")))) +
+      ggtitle("Monthly values filled with Deductive Rational Method") +
+      xlab("Month") + ylab("Value") +
+      theme_bw()
+
+  }
+
 
 }
