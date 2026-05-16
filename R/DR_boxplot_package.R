@@ -10,6 +10,9 @@ DR_boxplot <- function(dr){
   aux <- as.data.frame(cbind(month.abb[seq(1,12)],colMeans(dr[2:13])))
   colnames(aux) <- c("Month","Mean")
   aux$Mean <- as.numeric(aux$Mean)
+  # use factor for month to ensure Jan is the first and Dec the 12th
+  aux$Month <- factor(aux$Month, levels = month.abb[seq(1,12)])
+  data_long_month$Month <- factor(data_long_month$Month, levels = month.abb[seq(1,12)])
 
   ggplot(data_long_month, aes(x=as.factor(data_long_month$Month), y=data_long_month$Value)) +
     geom_boxplot(outlier.size = 1, outlier.alpha = 0.2, fill = "green") +

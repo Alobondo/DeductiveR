@@ -28,8 +28,8 @@ DR_timeseries_plot <- function(raw_data, infilled_data){
   df_combined <- bind_rows(df_original_plot, df_infilled_plot)
 
   # Plotting
-  ggplot(df_combined, aes(x = date, y = Value, color = Type)) +
-    geom_line() +
+  ggplot(df_combined, aes(x = date, y = Value, color = Type, linetype = Type)) +
+    geom_line(linewidth = 1.5) +
     labs(
       title = "Raw vs. Infilled Monthly Time Series",
       x = "Date",
