@@ -1,18 +1,17 @@
 Package: DeductiveR
 Type: Package
 Title: Deductive Rational Method
-Version: 1.1.0
-Date: 2024-12-16
+Version: 1.2.0
+Date: 2026-05-08
 Authors@R: person("Alonso", "Arriagada", email = "alonso.arriagada@usach.cl",
                   role = c("aut", "cre"))
 Description: Apply the Deductive Rational Method to a monthly series of flow or precipitation data to fill in missing data. The method is as described in: Campos, D.F., (1984, ISBN:9686194444). 
 License: GPL-3
 LazyData: true
 Encoding: UTF-8
-RoxygenNote: 7.2.3
 Imports:
     dplyr,
-    reshape2,
+    tidyr,
     ggplot2,
     moments,
     ggpubr,
@@ -23,3 +22,4 @@ Suggests:
 VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
+Config/roxygen2/version: 8.0.0

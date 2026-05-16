@@ -4,10 +4,12 @@
 \alias{DR_plot}
 \title{Plot the result from the application of the Deductive Rational Method}
 \usage{
-DR_plot(dr)
+DR_plot(dr, facet = FALSE)
 }
 \arguments{
 \item{dr}{data frame from DR function}
+
+\item{facet}{logical, if TRUE, the plot will be faceted by year}
 }
 \description{
 Plot the result from the application of the Deductive Rational Method

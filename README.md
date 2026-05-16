@@ -3,7 +3,7 @@ Deductive Rational Method for fill in missing data of flow or precipitation mont
 
 # Requirements
 Dependencies:
-  dplyr, reshape2, ggplot2, moments, ggpubr, lmomco
+  dplyr, tidyr, ggplot2, moments, ggpubr, lmomco
 
 # Installation
 You can install the currently-released version of **DeductiveR** from CRAN with this R command:

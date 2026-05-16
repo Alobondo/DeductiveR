@@ -5,7 +5,7 @@ knitr::opts_chunk$set(
 )
 
 ## ----setup,eval = FALSE-------------------------------------------------------
-#  # install.packages("remotes")
-#  remotes::install_github("Alobondo/DeductiveR")
-#  library(DeductiveR)
+# # install.packages("remotes")
+# remotes::install_github("Alobondo/DeductiveR")
+# library(DeductiveR)
 

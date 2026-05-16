@@ -12,6 +12,7 @@
 
 <meta name="author" content="Alonso Arriagadada M. alonso.arriagada@usach.cl" />
 
+<meta name="date" content="2026-05-08" />
 
 <title>DeductiveR</title>
 
@@ -49,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -339,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">DeductiveR</h1>
 <h4 class="author">Alonso Arriagadada M. <a href="mailto:alonso.arriagada@usach.cl" class="email">alonso.arriagada@usach.cl</a></h4>
-<h4 class="date">29-11-2021</h4>
+<h4 class="date">2026-05-08</h4>
 
 
 
@@ -349,7 +351,7 @@ proposed by Campos (Campos, D. F., Procesos del ciclo hidrologico,
 Universidad Autonoma de San Luis Potosi, 1992, Mexico).</p>
 <div id="requirements" class="section level2">
 <h2>Requirements</h2>
-<p>Dependencies: dplyr, reshape2, ggplot2, moments, ggpubr, lmomco</p>
+<p>Dependencies: dplyr, tidyr, ggplot2, moments, ggpubr, lmomco</p>
 </div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
@@ -397,6 +399,14 @@ Deductive Rational Method.</td>
 <td><code>DR_SVC()</code></td>
 <td>Seasonal Variation Curves considering results from the application
 of the Deductive Rational Method.</td>
+</tr>
+<tr class="even">
+<td><code>DR_timeseries_plot()</code></td>
+<td>Plot raw and infilled monthly time series.</td>
+</tr>
+<tr class="odd">
+<td><code>DR_timeseries_plot()</code></td>
+<td>Plot raw and infilled monthly time series.</td>
 </tr>
 </tbody>
 </table>

@@ -1,11 +1,10 @@
 #' BoxPlot from the result from the application of the Deductive Rational Method
 #' @export
 #' @param dr data frame from DR function
-#' @import dplyr reshape2 ggplot2
+#' @import dplyr tidyr ggplot2
 
 DR_boxplot <- function(dr){
-  data_long_month <- dr %>% melt(id.vars=c("year"))
-  colnames(data_long_month)[2:3] <- c("Month", "Value")
+  data_long_month <- dr %>% pivot_longer(cols = -year, names_to = "Month", values_to = "Value")
   data_long_month$year <- as.numeric(data_long_month$year)
 
   aux <- as.data.frame(cbind(month.abb[seq(1,12)],colMeans(dr[2:13])))

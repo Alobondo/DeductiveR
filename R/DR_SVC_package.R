@@ -1,7 +1,7 @@
 #' Seasonal Variation Curves considering results from the application of the Deductive Rational Method
 #' @export
 #' @param dr data frame from DR function
-#' @import dplyr reshape2 ggplot2 lmomco ggpubr
+#' @import dplyr tidyr ggplot2 lmomco ggpubr
 
 DR_SVC <- function(dr){
   Ordenados <- as.data.frame(apply(dr[,2:13], 2, sort, decreasing=TRUE))
@@ -17,7 +17,7 @@ DR_SVC <- function(dr){
 
   colnames(CVE_probb)[2:13] <- colnames(Ordenados)[2:13]
 
-  data_long_CVE_probb <- CVE_probb %>%  melt(id.vars=c("Exd_Probb"))
+  data_long_CVE_probb <- CVE_probb %>% pivot_longer(cols = -Exd_Probb, names_to = "variable", values_to = "value")
 
   data_long_CVE_probb <- data_long_CVE_probb[order(data_long_CVE_probb$Exd_Probb), ]
 

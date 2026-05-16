@@ -2,22 +2,20 @@
 #' precipitation data to fill in missing data.
 #' @export
 #' @param data data frame with columns: date - year - month - day - station (Type date and numeric the rest)
-#' @import dplyr reshape2
+#' @param negative logical, if TRUE, negative values will be set to zero in the final result. Default is FALSE.
+#' @import dplyr tidyr
 
-DR <- function(data){
+DR <- function(data, negative = FALSE){
   # The method only allows you to fill in up to 11 months for incomplete years
   # and requires a record with at least 10 full years.
 
   # A matrix of years x months is created
-  data_wide <- as.data.frame(acast(data, year ~ month))
-  data_wide <- cbind(year = rownames(data_wide), data_wide)
-
-  # As numeric
-  data_wide <- data.frame(sapply( data_wide , as.numeric ))
+  data_wide <- data %>%
+    pivot_wider(names_from = month, values_from = station) %>%
+    mutate(across(everything(), as.numeric))
 
   # A long format DF a is created
-  data_long <- data_wide %>% melt(id.vars=c("year"))
-  colnames(data_long)[3] <- "Station"
+  data_long <- data_wide %>% pivot_longer(cols = -year, names_to = "month", values_to = "Station")
 
   # Count missing months by chronological years
   meses_faltantes <- stats::aggregate(Station ~ year, data=data_long, function(x) {sum(is.na(x))}, na.action = NULL)
@@ -73,6 +71,11 @@ DR <- function(data){
 
   DR <- t(matrix(DR,nrow = 12))
   DR_final <- DR_final + DR
+
+  # Avoid negative values if 'negative' parameter is TRUE
+  if (negative) {
+    DR_final[DR_final < 0] <- 0
+  }
 
   DR_final <- cbind(data_wide$year, DR_final)
   colnames(DR_final) <- c("year",month.abb[seq(1,12)]) # Column names
