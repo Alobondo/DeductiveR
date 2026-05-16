@@ -6,6 +6,7 @@
 DR_stats <- function(dr){
   data_long_month <- dr %>% pivot_longer(cols = -year, names_to = "Month", values_to = "Value")
 
+  # order the result by month from Jan to Dec
   data_long_month %>% group_by(Month) %>%
     summarise(
       N = n(),
@@ -20,6 +21,8 @@ DR_stats <- function(dr){
       IQR = stats::IQR(Value, na.rm = TRUE),
       Qs_2 = stats::quantile(Value, 0.25, na.rm = TRUE),
       Qs_4 = stats::quantile(Value, 0.75, na.rm = TRUE)
-    )
+    ) %>%
+    mutate(Month = factor(Month, levels = month.abb)) %>%
+    arrange(Month)
 
 }
