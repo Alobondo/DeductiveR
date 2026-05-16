@@ -10,6 +10,7 @@ DR <- function(data, negative = FALSE){
   # and requires a record with at least 10 full years.
 
   # A matrix of years x months is created
+  colnames(data) <- c("date", "year", "month", "day", "station")
   data_wide <- data %>%
     pivot_wider(names_from = month, values_from = station) %>%
     mutate(across(everything(), as.numeric))
