@@ -1,4 +1,4 @@
-# DeductiveR
+# DeductiveR <img src="man/Figures/DeductiveR_Logo.png" align="right" width="180px" height="195px" />
 Deductive Rational Method for fill in missing data of flow or precipitation monthly time series.
 
 # Requirements
